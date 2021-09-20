@@ -1,0 +1,15 @@
+<p>profile works!</p>
+
+<form>
+    <div class="form-group">
+      <label for="firstName">first Name</label>
+      <input [(ngModel)]="firstName" name="firstName" type="email" class="form-control" id="firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">last Name</label>
+      <input [(ngModel)]="lastName" name="lastName" type="text" class="form-control" id="lastName">
+    </div>
+    <button (click)="save()" type="button" class="btn btn-primary">Save</button>
+  </form>
+
+<button class="btn btn-warning" (click)="signOut()">sign out</button>

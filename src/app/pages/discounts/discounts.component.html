@@ -1,0 +1,16 @@
+<p>discounts works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let disc of userDiscounts">
+      <div class="card">
+        <img [src]="disc.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ disc.title }}</h5>
+          <p class="card-text">{{ disc.text }}</p>
+          <a [routerLink]="[ '/discounts', disc.id ]" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<p>admin-discount works!</p>
+<form>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input [(ngModel)]="discountTitle" name="discountTitle" type="text" class="form-control" id="title">
+  </div>
+  <div class="form-group">
+    <label for="text">Text</label>
+    <textarea [(ngModel)]="discountText" name="discountText" class="form-control" id="text" cols="30" rows="10"></textarea>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+    </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="uploadFile($event)">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
+  </div>
+  <div class="progress mb-3">
+    <div class="progress-bar progress-bar-striped" [style.width]="(uploadPercent | async) + '%' " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <button *ngIf="!editStatus" (click)="addAdminDiscount()" type="button" class="btn btn-primary">ADD</button>
+  <button *ngIf="editStatus" (click)="saveEditAdminDiscount()" type="button" class="btn btn-info">Save</button>
+</form>
+<hr>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Text</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of adminDiscounts; let i=index">
+            <td>{{ i+1 }}</td>
+            <td>{{ d.title }}</td>
+            <td>{{ d.text }}</td>
+            <td>
+                <button (click)="editAdminDiscount(d)" class="btn btn-warning">edit</button>
+            </td>
+            <td>
+                <button (click)="deleteAdminDiscount(d)" class="btn btn-danger">delete</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>

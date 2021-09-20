@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "july-6b04f": {
+      "hosting": {
+        "la-piec": [
+          "july-6b04f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "july-6b04f"
+  }
+}

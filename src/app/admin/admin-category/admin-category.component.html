@@ -1,0 +1,82 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <div class="col">
+      Category
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-dark btn-block" (click)="openCategoryModal(addModal)">Add</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <form>
+      <input type="text" class="form-control" placeholder="filter category..">
+    </form>
+    <hr>
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col" style="width: 2rem">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">URL name</th>
+            <th scope="col">Icon</th>
+            <th scope="col" style="width: 5rem">Edit</th>
+            <th scope="col" style="width: 5rem">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of adminCategories; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{ category.name }}</td>
+            <td>{{ category.urlName }}</td>
+            <td>{{ category.icon }}</td>
+            <td><button type="button" class="btn btn-dark" (click)="editCategory(addModal, category)" data-toggle="modal" data-target="#categoryModal">Edit</button></td>
+            <td><button type="button" class="btn btn-dark" (click)="deleteCategory(deleteModal,category)" data-toggle="modal" data-target="#deleteModal">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #addModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-row">
+        <div class="col">
+          <input [(ngModel)]="categoryName" name="categoryName" type="text" class="form-control" placeholder="name here..">
+        </div>
+        <div class="col">
+          <input [(ngModel)]="categoryUrlName" name="categoryUrlName" type="text" class="form-control" placeholder="url here..">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary">Close</button>
+    <button *ngIf="!editStatus" type="button" class="btn btn-dark" (click)="addCategory()">Add</button>
+    <button *ngIf="editStatus" type="button" class="btn btn-dark" (click)="saveEditCategory()">Save edit</button>
+  </div>
+</ng-template>
+
+<ng-template #deleteModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-content">
+    <div class="modal-footer">
+      <button type="button" class="btn btn-dark btn-block" (click)="deleteSubmit(false)" data-dismiss="modal">Dismiss</button>
+      <span></span>
+      <button type="button" class="btn btn-danger btn-block" (click)="deleteSubmit(true)" data-dismiss="modal">Delete</button>
+    </div>
+  </div>
+</ng-template>

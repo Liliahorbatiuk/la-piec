@@ -1,0 +1,75 @@
+<h1>Product</h1>
+<form>
+  <div class="form-group">
+    <label for="chooseCategory">Category: </label>
+    <select (change)="setCategory()" [(ngModel)]="categoryName" name="categoryName"  class="form-control" id="chooseCategory">
+      <option *ngFor="let cat of categories">
+          {{ cat.name }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="productName">Name: </label>
+    <input [(ngModel)]="productName" name="productName" type="text" class="form-control" id="productName">
+  </div>
+  <div class="form-group">
+    <label for="productUrlName">URL name: </label>
+    <input [(ngModel)]="productUrlName" name="productUrlName" type="text" class="form-control" id="productUrlName">
+  </div>
+
+  <div class="form-group">
+    <label for="productDescription">Description: </label>
+    <textarea [(ngModel)]="productDescription" name="productDescription" class="form-control" id="text" cols="30" rows="10"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="productWeight">Weight: </label>
+    <input [(ngModel)]="productWeight" name="productWeight" type="text" class="form-control" id="productWeight">
+  </div>
+
+  <div class="form-group">
+    <label for="productPrice">Price: </label>
+    <input [(ngModel)]="productPrice" name="productPrice" type="number" class="form-control" id="productPrice">
+  </div>
+  <div class="custom-file">
+    <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="urlImage" required>
+    <label class="custom-file-label" for="urlImage">Choose file...</label>
+  </div>
+  <div class="progress mt-3 mb-3">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+      [style.width]="(uploadProgress | async) + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <button *ngIf="!editStatus" (click)="addProduct()" type="button" class="btn btn-primary">ADD</button>
+  <button *ngIf="editStatus" (click)="updateProduct()" type="button" class="btn btn-info">Save</button>
+</form>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">URL</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of adminProducts; let i=index">
+      <td>{{ i+1 }}</td>
+      <td>{{ prod.name }}</td>
+      <td>{{ prod.description }}</td>
+      <td>{{ prod.price }}</td>
+      <td>
+        <!-- <img [attr.src]="prod?.image" style="width: 100px;" alt=""> -->
+      </td>
+      <td>
+        <button class="btn btn-warning" (click)="editProduct(prod)">edit</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteProduct(prod)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,88 @@
+{
+  "discounts": [
+    {
+      "id": 1,
+      "title": "qqq",
+      "text": "qqqq111",
+      "image": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2020/05/aktsiya-dlya-sajta-21.jpg",
+      "visibility": true
+    },
+    {
+      "title": "dsads",
+      "text": "adsadsadsa",
+      "image": "https://www.lapiec-pizza.com.ua/wp-content/uploads/2020/05/aktsiya-dlya-sajta-21.jpg",
+      "visibility": true,
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "піца",
+      "urlName": "pizza",
+      "icon": "urlImage",
+      "id": 1
+    },
+    {
+      "name": "салат",
+      "urlName": "salad",
+      "icon": "urlImage",
+      "id": 2
+    },
+    {
+      "name": "напої",
+      "urlName": "drinks",
+      "icon": "urlImage",
+      "id": 3
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "name": "піца",
+        "urlName": "pizza",
+        "icon": "urlImage",
+        "id": 1
+      },
+      "name": "Піца La П’єц",
+      "urlName": "lapiec",
+      "description": "соус томатний, шинка, баварські ковбаски, сир моцарела, ковбаса салямі, прошуто.",
+      "weight": "480 гр",
+      "price": 177,
+      "image": "https://firebasestorage.googleapis.com/v0/b/july-6b04f.appspot.com/o/images%2FLA-P_yets-1.png?alt=media&token=8abc49e1-aac9-49a9-b821-833b04f6d9a2",
+      "count": 1,
+      "id": 1
+    },
+    {
+      "category": {
+        "name": "салат",
+        "urlName": "salad",
+        "icon": "urlImage",
+        "id": 2
+      },
+      "name": "Салат Цезар зі смаженим курячим філе",
+      "urlName": "tsezar",
+      "description": "Салат айсберг, помідори, куряче м`ясо, сир пармезан, перепелині яйця, духмяні сухарики та фірмова заправка - соус «Цезар».",
+      "weight": "250 гр",
+      "price": 135,
+      "image": "https://firebasestorage.googleapis.com/v0/b/july-6b04f.appspot.com/o/images%2FTSezar-z-kurkoyu.png?alt=media&token=6ef59ad3-e80c-4549-a2e0-1cee0e2d0e95",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": {
+        "name": "напої",
+        "urlName": "drinks",
+        "icon": "urlImage",
+        "id": 3
+      },
+      "name": "Апельсиновий нектар з м'якоттю, 1 л, ТМ “RICH”",
+      "urlName": "rich-orange",
+      "description": "Апельсиновий нектар з м'якоттю, 1 л, ТМ “RICH”",
+      "weight": "1 л",
+      "price": 42,
+      "image": "https://firebasestorage.googleapis.com/v0/b/july-6b04f.appspot.com/o/images%2Frich_orange.jpg?alt=media&token=d27a13a7-1673-4e53-9676-97eaf6b34c66",
+      "count": 1,
+      "id": 3
+    }
+  ]
+}
